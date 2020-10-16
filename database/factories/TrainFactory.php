@@ -1,0 +1,32 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Train;
+use DateTime;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class TrainFactory extends Factory
+{
+    protected $model = Train::class;
+
+    public function definition()
+    {
+        $productionStart = $this->faker->dateTimeBetween('-120 years', 'now');
+        $productionEnd = $this->faker->dateTimeBetween(
+            $productionStart,
+            (clone $productionStart)->modify('+20 years')
+        );
+        if ($productionEnd > new DateTime()){
+            $productionEnd = null;
+        }
+        return [
+            'make' => ucwords($this->faker->word),
+            'model' => $this->faker->company,
+            'productionStart' => $productionStart,
+            'productionEnd' => $productionEnd,
+            'imgUrl' => $this->faker->imageUrl(),
+            'description' => $this->faker->paragraph
+        ];
+    }
+}
