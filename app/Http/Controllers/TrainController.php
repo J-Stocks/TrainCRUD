@@ -7,14 +7,10 @@ use Illuminate\Http\Request;
 
 class TrainController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $trains = Train::orderBy('make')->orderBy('model')->get();
+        return view('train.index', compact('trains'));
     }
 
     /**
@@ -38,15 +34,9 @@ class TrainController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Train  $train
-     * @return \Illuminate\Http\Response
-     */
     public function show(Train $train)
     {
-        //
+        return view('train.show', compact('train'));
     }
 
     /**

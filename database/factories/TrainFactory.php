@@ -21,8 +21,8 @@ class TrainFactory extends Factory
             $productionEnd = null;
         }
         return [
-            'make' => ucwords($this->faker->word),
-            'model' => $this->faker->company,
+            'make' => $this->faker->company,
+            'model' => ucwords($this->faker->word),
             'productionStart' => $productionStart,
             'productionEnd' => $productionEnd,
             'imgUrl' => $this->faker->imageUrl(),
