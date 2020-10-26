@@ -32,7 +32,8 @@ class TrainController extends Controller
             'model',
             'production_start',
             'production_end',
-            'description');
+            'description'
+        );
         $attributes['img_url'] = '';
         $train = Train::create($attributes);
         return redirect(url($train->path));

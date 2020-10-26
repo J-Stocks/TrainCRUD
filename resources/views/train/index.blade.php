@@ -18,7 +18,7 @@
 
                 <div class="w-full p-6">
                     <ul class="text-gray-700">
-                        @foreach($trains as $train)
+                        @foreach ($trains as $train)
                             <li>
                                 <a href="{{ url($train->path) }}">
                                     {{ $train->makeModel }}

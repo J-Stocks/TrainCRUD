@@ -18,19 +18,23 @@ class Train extends Model
         'description'
     ];
 
-    public function getPathAttribute(){
+    public function getPathAttribute()
+    {
         return $this->path();
     }
 
-    public function getMakeModelAttribute(){
+    public function getMakeModelAttribute()
+    {
         return $this->makeModel();
     }
 
-    public function makeModel(){
+    public function makeModel()
+    {
         return $this->make . ", " . $this->model;
     }
 
-    public function path(){
-        return "/trains/".$this->id;
+    public function path()
+    {
+        return "/trains/" . $this->id;
     }
 }

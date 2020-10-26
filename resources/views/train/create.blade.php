@@ -27,7 +27,7 @@
                                 name="make"
                                 id="make"
                             />
-                            @error('make')
+                            @error ('make')
                                 <div>
                                     {{ $message }}
                                 </div>
@@ -41,10 +41,10 @@
                                 name="model"
                                 id="model"
                             />
-                            @error('model')
-                            <div>
-                                {{ $message }}
-                            </div>
+                            @error ('model')
+                                <div>
+                                    {{ $message }}
+                                </div>
                             @enderror
                         </div>
                         <div>
@@ -55,10 +55,10 @@
                                 name="production_start"
                                 id="production_start"
                             />
-                            @error('production_start')
-                            <div>
-                                {{ $message }}
-                            </div>
+                            @error ('production_start')
+                                <div>
+                                    {{ $message }}
+                                </div>
                             @enderror
                         </div>
                         <div>
@@ -69,10 +69,10 @@
                                 name="production_end"
                                 id="production_end"
                             />
-                            @error('production_end')
-                            <div>
-                                {{ $message }}
-                            </div>
+                            @error ('production_end')
+                                <div>
+                                    {{ $message }}
+                                </div>
                             @enderror
                         </div>
                         <div>
@@ -83,10 +83,10 @@
                                 name="description"
                                 id="description"
                             />
-                            @error('description')
-                            <div>
-                                {{ $message }}
-                            </div>
+                            @error ('description')
+                                <div>
+                                    {{ $message }}
+                                </div>
                             @enderror
                         </div>
                         <div>

@@ -17,7 +17,7 @@ class TrainFactory extends Factory
             $productionStart,
             (clone $productionStart)->modify('+20 years')
         );
-        if ($productionEnd > new DateTime()){
+        if ($productionEnd > new DateTime()) {
             $productionEnd = null;
         }
         return [
