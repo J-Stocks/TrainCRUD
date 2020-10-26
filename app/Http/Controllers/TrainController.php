@@ -13,25 +13,29 @@ class TrainController extends Controller
         return view('train.index', compact('trains'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('train.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'make' => 'required|min:1|max:255',
+            'model' => 'required|min:1|max:255',
+            'production_start' => 'required',
+            'production_end' => 'required',
+            'description' => 'max:3000'
+        ]);
+        $attributes = $request->all(
+            'make',
+            'model',
+            'production_start',
+            'production_end',
+            'description');
+        $attributes['img_url'] = '';
+        $train = Train::create($attributes);
+        return redirect(url($train->path));
     }
 
     public function show(Train $train)

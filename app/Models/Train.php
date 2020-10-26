@@ -9,6 +9,15 @@ class Train extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'make',
+        'model',
+        'production_start',
+        'production_end',
+        'img_url',
+        'description'
+    ];
+
     public function getPathAttribute(){
         return $this->path();
     }
