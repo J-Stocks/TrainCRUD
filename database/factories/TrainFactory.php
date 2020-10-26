@@ -23,9 +23,9 @@ class TrainFactory extends Factory
         return [
             'make' => $this->faker->company,
             'model' => ucwords($this->faker->word),
-            'productionStart' => $productionStart,
-            'productionEnd' => $productionEnd,
-            'imgUrl' => $this->faker->imageUrl(),
+            'production_start' => $productionStart,
+            'production_end' => $productionEnd,
+            'img_url' => $this->faker->imageUrl(),
             'description' => $this->faker->paragraph
         ];
     }
