@@ -10,12 +10,12 @@ class TrainController extends Controller
     public function index()
     {
         $trains = Train::orderBy('make')->orderBy('model')->get();
-        return view('train.index', compact('trains'));
+        return view('trains.index', compact('trains'));
     }
 
     public function create()
     {
-        return view('train.create');
+        return view('trains.create');
     }
 
     public function store(Request $request)
@@ -41,7 +41,7 @@ class TrainController extends Controller
 
     public function show(Train $train)
     {
-        return view('train.show', compact('train'));
+        return view('trains.show', compact('train'));
     }
 
     /**
