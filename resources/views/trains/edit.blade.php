@@ -13,86 +13,98 @@
                     Edit the details of {{ $train->makeModel }}
                 </header>
                 <div class="w-full p-6 text-gray-700">
-                    <form method="post" action="{{ url($train->path) }}">
+                    <form method="post" action="{{ url($train->path) }}" class="inline-grid grid-cols-3 gap-2">
                         @method('PATCH')
                         @csrf
-                        <div>
+                        <div class="flex flex-col justify-center">
                             <label for="make">Make</label>
-                            <input
-                                class="@error ('make') border border-red-500 @enderror"
-                                type="text"
-                                name="make"
-                                id="make"
-                                value="{{ $train->make }}"
-                            />
+                        </div>
+                        <input
+                            class="border border-gray-700 rounded px-2 py-1  @error ('make') border border-red-500 @enderror"
+                            type="text"
+                            name="make"
+                            id="make"
+                            value="{{ $train->make }}"
+                        />
+                        <div>
                             @error ('make')
-                            <div>
-                                {{ $message }}
-                            </div>
+                                <p>
+                                    {{ $message }}
+                                </p>
                             @enderror
                         </div>
-                        <div>
+                        <div class="flex flex-col justify-center">
                             <label for="model">Model</label>
-                            <input
-                                class="@error ('model') border border-red-500 @enderror"
-                                type="text"
-                                name="model"
-                                id="model"
-                                value="{{ $train->model }}"
-                            />
+                        </div>
+                        <input
+                            class="border border-gray-700 rounded px-2 py-1  @error ('model') border border-red-500 @enderror"
+                            type="text"
+                            name="model"
+                            id="model"
+                            value="{{ $train->model }}"
+                        />
+                        <div>
                             @error ('model')
-                            <div>
-                                {{ $message }}
-                            </div>
+                                <p>
+                                    {{ $message }}
+                                </p>
                             @enderror
                         </div>
-                        <div>
+                        <div class="flex flex-col justify-center">
                             <label for="production_start">Production Started</label>
-                            <input
-                                class="@error ('production_start') border border-red-500 @enderror"
-                                type="date"
-                                name="production_start"
-                                id="production_start"
-                                value="{{ $train->production_start }}"
-                            />
+                        </div>
+                        <input
+                            class="border border-gray-700 rounded px-2 py-1  @error ('production_start') border border-red-500 @enderror"
+                            type="date"
+                            name="production_start"
+                            id="production_start"
+                            value="{{ $train->production_start }}"
+                        />
+                        <div>
                             @error ('production_start')
-                            <div>
-                                {{ $message }}
-                            </div>
+                                <p>
+                                    {{ $message }}
+                                </p>
                             @enderror
                         </div>
-                        <div>
+                        <div class="flex flex-col justify-center">
                             <label for="production_end">Production Ended</label>
-                            <input
-                                class="@error ('production_end') border border-red-500 @enderror"
-                                type="date"
-                                name="production_end"
-                                id="production_end"
-                                value="{{ $train->production_end }}"
-                            />
+                        </div>
+                        <input
+                            class="border border-gray-700 rounded px-2 py-1  @error ('production_end') border border-red-500 @enderror"
+                            type="date"
+                            name="production_end"
+                            id="production_end"
+                            value="{{ $train->production_end }}"
+                        />
+                        <div>
                             @error ('production_end')
-                            <div>
-                                {{ $message }}
-                            </div>
+                                <p>
+                                    {{ $message }}
+                                </p>
                             @enderror
                         </div>
-                        <div>
+                        <div class="flex flex-col justify-center">
                             <label for="description">Description</label>
-                            <input
-                                class="@error ('description') border border-red-500 @enderror"
-                                type="text"
-                                name="description"
-                                id="description"
-                                value="{{ $train->description }}"
-                            />
+                        </div>
+                        <input
+                            class="border border-gray-700 rounded px-2 py-1  @error ('description') border border-red-500 @enderror"
+                            type="text"
+                            name="description"
+                            id="description"
+                            value="{{ $train->description }}"
+                        />
+                        <div>
                             @error ('description')
-                            <div>
-                                {{ $message }}
-                            </div>
+                                <p>
+                                    {{ $message }}
+                                </p>
                             @enderror
                         </div>
-                        <div>
-                            <input type="submit" value="Update">
+                        <div class="col-span-2">
+                            <button type="submit" class="w-full select-none font-bold whitespace-no-wrap p-3 rounded-lg text-base text-center leading-normal no-underline text-gray-100 bg-blue-500 hover:bg-blue-700 sm:py-4">
+                                Update
+                            </button>
                         </div>
                     </form>
                 </div>
