@@ -23,6 +23,9 @@
                                 </div>
                             @endforeach
                         </div>
+                        <div class="mt-2">
+                            {{ $trains->links() }}
+                        </div>
                     @else
                         <p>
                             We don't have any trains!
