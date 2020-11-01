@@ -14,7 +14,6 @@ class Train extends Model
         'model',
         'production_start',
         'production_end',
-        'img_url',
         'description'
     ];
 

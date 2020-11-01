@@ -13,8 +13,7 @@ class CreateTrainsTable extends Migration
             $table->text('make');
             $table->text('model');
             $table->date('production_start');
-            $table->date('production_end')->nullable();
-            $table->text('img_url');
+            $table->date('production_end');
             $table->text('description');
             $table->timestamps();
             $table->unique(['make', 'model']);
