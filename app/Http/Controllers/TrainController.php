@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class TrainController extends Controller
 {
+    private const RULES = [
+        'make' => 'required|min:1|max:255',
+        'model' => 'required|min:1|max:255',
+        'production_start' => 'required|date|lte:production_end',
+        'production_end' => 'required|date|gte:production_start',
+        'description' => 'max:3000'
+    ];
+
     public function index()
     {
         $trains = Train::orderBy('make')->orderBy('model')->get();
@@ -20,20 +28,7 @@ class TrainController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'make' => 'required|min:1|max:255',
-            'model' => 'required|min:1|max:255',
-            'production_start' => 'required',
-            'production_end' => 'required',
-            'description' => 'max:3000'
-        ]);
-        $attributes = $request->all(
-            'make',
-            'model',
-            'production_start',
-            'production_end',
-            'description'
-        );
+        $attributes = $request->validate(self::RULES);
         $train = Train::create($attributes);
         return redirect(url($train->path));
     }
@@ -43,27 +38,16 @@ class TrainController extends Controller
         return view('trains.show', compact('train'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Train  $train
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Train $train)
     {
-        //
+        return view('trains.edit', compact('train'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Train  $train
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Train $train)
     {
-        //
+        $attributes = $request->validate(self::RULES);
+        $train->update($attributes);
+        return redirect(url($train->path));
     }
 
     /**
