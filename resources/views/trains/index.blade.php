@@ -17,15 +17,21 @@
                 </header>
 
                 <div class="w-full p-6">
-                    <ul class="text-gray-700">
-                        @foreach ($trains as $train)
-                            <li>
-                                <a href="{{ url($train->path) }}">
-                                    {{ $train->makeModel }}
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
+                    @if (count($trains) !== 0)
+                        <ul class="text-gray-700">
+                            @foreach ($trains as $train)
+                                <li>
+                                    <a href="{{ url($train->path) }}">
+                                        {{ $train->makeModel }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <p>
+                            We don't have any trains!
+                        </p>
+                    @endif
                 </div>
             </section>
         </div>
