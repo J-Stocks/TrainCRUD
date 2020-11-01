@@ -50,14 +50,9 @@ class TrainController extends Controller
         return redirect(url($train->path));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Train  $train
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Train $train)
     {
-        //
+        $train->delete();
+        return redirect(url('/trains'));
     }
 }
