@@ -32,8 +32,8 @@ class Train extends Model
         return $this->make . ", " . $this->model;
     }
 
-    public function path()
+    public function path($append = "")
     {
-        return "/trains/" . $this->id;
+        return "/trains/" . $this->id . "/" . $append;
     }
 }

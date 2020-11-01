@@ -20,6 +20,14 @@
                     <p class="text-gray-700">
                         {{ $train }}
                     </p>
+                    <a href="{{ $train->path('edit') }}">
+                        Edit
+                    </a>
+                    <form method="post" action="{{ $train->path }}">
+                        @method('DELETE')
+                        @csrf
+                        <input type="submit" value="Delete">
+                    </form>
                 </div>
             </section>
         </div>
