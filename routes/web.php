@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::middleware('auth')->group(function () {
+    Route::get('/', function () {
+        return redirect('/trains');
+    });
     Route::get('/trains', [TrainController::class, 'index']);
     Route::get('/trains/create', [TrainController::class, 'create']);
     Route::post('/trains', [TrainController::class, 'store']);
