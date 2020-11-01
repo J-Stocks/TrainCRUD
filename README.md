@@ -8,6 +8,7 @@ To set up and run TrainCRUD do as follows:
 - Create the .env file: `cp .env.example .env`
 - Set up a database, [MariaDB](https://mariadb.org/) via [XAMPP](https://www.apachefriends.org/index.html) is recommended.
 - Add the connection details for the database to the .env file, all the properties prefixed with "DB_" are required.
+- Seed the database: `php artisan migrate:fresh --seed`
 - Install and build the [npm](https://www.npmjs.com/get-npm) packages: `npm install && npm run dev`
 - Generate an App Key: `php artisan key:generate`
 
