@@ -10,8 +10,8 @@ class TrainController extends Controller
     private const RULES = [
         'make' => 'required|min:1|max:255',
         'model' => 'required|min:1|max:255',
-        'production_start' => 'required|date|lte:production_end',
-        'production_end' => 'required|date|gte:production_start',
+        'production_start' => 'required|date|before_or_equal:production_end',
+        'production_end' => 'required|date|after_or_equal:production_start',
         'description' => 'max:3000'
     ];
 
